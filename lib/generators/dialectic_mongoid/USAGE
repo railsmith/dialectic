@@ -1,0 +1,8 @@
+Description:
+    Explain the generator
+
+Example:
+    rails generate dialectic_mongoid Thing
+
+    This will create:
+        what/will/it/create

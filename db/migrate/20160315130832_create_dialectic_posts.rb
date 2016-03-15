@@ -4,8 +4,6 @@ class CreateDialecticPosts < ActiveRecord::Migration
       t.string :subject
       t.integer :posted_by
       t.string :body
-
-      t.timestamps null: false
     end
   end
 end

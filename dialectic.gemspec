@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Harshit Kumar"]
   s.email       = ["immortalhsk@hotmail.com"]
   s.homepage    = "http://github.com/railsmith/dialectic"
-  s.summary     = "A opinionated forum engine for rails."
-  s.description = "A opinionated forum engine for rails."
+  s.summary     = "A discussion forum engine for rails."
+  s.description = "A discussion forum engine for rails."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]

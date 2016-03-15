@@ -1,3 +1,3 @@
 Dialectic.configure do |config|
-  config.orm= :active_record
+  config.orm = :active_record
 end

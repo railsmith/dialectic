@@ -1,4 +1,5 @@
 require 'rails'
+require 'yaml'
 
 module Dialectic
 
@@ -11,9 +12,19 @@ module Dialectic
       g.orm :mongoid, migration: true
     end
 
-    initializer "dialectic.orm", after: :load_config_initializers do |app|
-       require 'mongoid' if Dialectic.orm == :mongoid
-       require 'active_record/railtie' if Dialectic.orm == :active_record
+    initializer 'dialectic.orm', after: :load_config_initializers do |app|
+      begin
+        if Dialectic.orm == :mongoid
+          require 'mongoid'
+          require_relative 'mongoid'
+        end
+        if Dialectic.orm == :active_record
+          require 'active_record/railtie'
+          require_relative 'active_record'
+        end
+      rescue LoadError
+        puts 'Dialectic requires either mongoid > 5.0 or activerecord > 4.2.4'
+      end
     end
   end
 end
