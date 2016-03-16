@@ -1,4 +1,2 @@
-module Dialectic
-  class Post <ApplicationRecord
-  end
+class Post <ApplicationRecord
 end

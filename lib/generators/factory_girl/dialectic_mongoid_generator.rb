@@ -11,6 +11,10 @@ module FactoryGirl
         ", class: '#{class_name}'" unless class_name == singular_table_name.camelize
       end
 
+      def custom_class_name
+        "mongoid_#{singular_table_name}"
+      end
+
       argument(
           :attributes,
           type: :array,
@@ -61,7 +65,7 @@ module FactoryGirl
 
       def factory_definition
         <<-RUBY
-  factory :#{singular_table_name}#{explicit_class_option} do
+  factory :#{custom_class_name}#{explicit_class_option} do
 #{factory_attributes.gsub(/^/, "    ")}
   end
         RUBY

@@ -6,6 +6,8 @@ end
 
 require 'rdoc/task'
 require 'active_record'
+require 'mongoid'
+require 'mongoid_rails_migrations'
 require 'rails'
 
 RDoc::Task.new(:rdoc) do |rdoc|
@@ -31,8 +33,8 @@ end
 
 
 load 'rails/tasks/statistics.rake'
-load 'active_record/railties/databases.rake'
-
+load 'lib/tasks/active_record.rake'
+load "mongoid_rails_migrations/mongoid_ext/railties/database.rake"
 
 Bundler::GemHelper.install_tasks
 

@@ -20,5 +20,8 @@ group :development, :test do
 end
 
 gem 'mongoid', '~> 5.1.0'
+gem 'mongoid_rails_migrations'
 
 gem 'mysql2'
+
+gem 'i18n'

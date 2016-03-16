@@ -72,6 +72,12 @@ GEM
       mongo (~> 2.1)
       origin (~> 2.2)
       tzinfo (>= 0.3.37)
+    mongoid_rails_migrations (1.1.0)
+      activesupport (>= 4.2.0)
+      bundler (>= 1.0.0)
+      mongoid (>= 4.0.0)
+      rails (>= 4.2.0)
+      railties (>= 4.2.0)
     mysql2 (0.4.3)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -151,7 +157,9 @@ PLATFORMS
 DEPENDENCIES
   dialectic!
   factory_girl_rails (~> 4.6.0)
+  i18n
   mongoid (~> 5.1.0)
+  mongoid_rails_migrations
   mysql2
   rspec-rails (~> 3.0)
   rubocop (~> 0.37.2)
