@@ -8,7 +8,7 @@ module Dialectic
 
     config.generators do |g|
       g.test_framework :rspec
-      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+      g.fixture_replacement :factory_girl, dir: 'spec/dummy/spec/factories/'
       g.orm :mongoid, migration: true
     end
 

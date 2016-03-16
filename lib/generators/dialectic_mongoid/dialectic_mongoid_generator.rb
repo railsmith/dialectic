@@ -11,7 +11,7 @@ class DialecticMongoidGenerator < Rails::Generators::NamedBase
   class_option :collection, type: :string, desc: "The collection for storing model's documents"
 
   def create_model_file
-    template "model.rb.tt", File.join("lib", class_path, "#{file_name}.rb")
+    template "model.rb.tt", File.join("lib", class_path, 'mongoid/', "#{file_name}.rb")
   end
 
   hook_for :test_framework
