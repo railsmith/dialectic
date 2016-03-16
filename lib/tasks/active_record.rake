@@ -1,4 +1,18 @@
 require 'active_record'
+require 'rails'
+
+include ActiveRecord::Tasks
+
+DatabaseTasks.env = Rails.env || 'development'
+DatabaseTasks.database_configuration = YAML::load(IO.read('config/database.yml'))
+DatabaseTasks.db_dir = 'db'
+DatabaseTasks.migrations_paths = 'db/migrate'
+DatabaseTasks.root = Rails.root
+
+task :environment do
+  ActiveRecord::Base.configurations = DatabaseTasks.database_configuration
+  ActiveRecord::Base.establish_connection DatabaseTasks.env.to_sym
+end
 
 namespace :active_record do
   db_namespace = namespace :db do

@@ -5,10 +5,6 @@ rescue LoadError
 end
 
 require 'rdoc/task'
-require 'active_record'
-require 'mongoid'
-require 'mongoid_rails_migrations'
-require 'rails'
 
 RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
@@ -18,23 +14,10 @@ RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-include ActiveRecord::Tasks
-
-DatabaseTasks.env = Rails.env || 'development'
-DatabaseTasks.database_configuration = YAML::load(IO.read('config/database.yml'))
-DatabaseTasks.db_dir = 'db'
-DatabaseTasks.migrations_paths = 'db/migrate'
-DatabaseTasks.root = Rails.root
-
-task :environment do
-  ActiveRecord::Base.configurations = DatabaseTasks.database_configuration
-  ActiveRecord::Base.establish_connection DatabaseTasks.env.to_sym
-end
-
 
 load 'rails/tasks/statistics.rake'
 load 'lib/tasks/active_record.rake'
-load "mongoid_rails_migrations/mongoid_ext/railties/database.rake"
+load 'lib/tasks/mongoid.rake'
 
 Bundler::GemHelper.install_tasks
 
