@@ -11,6 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160315130832) do
+
+  create_table "dialectic_posts", force: :cascade do |t|
+    t.string  "subject",   limit: 255
+    t.integer "posted_by", limit: 4
+    t.string  "body",      limit: 255
+  end
 
 end

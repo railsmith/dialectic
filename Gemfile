@@ -19,9 +19,11 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.6.0'
 end
 
-gem 'mongoid', '~> 5.1.0'
-gem 'mongoid_rails_migrations'
+group :mongoid do
+  gem 'mongoid', '~> 5.1.0'
+  gem 'mongoid_rails_migrations'
+end
 
-gem 'mysql2'
-
-gem 'i18n'
+group :active_record do
+  gem 'mysql2'
+end

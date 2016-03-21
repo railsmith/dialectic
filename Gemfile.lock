@@ -157,7 +157,6 @@ PLATFORMS
 DEPENDENCIES
   dialectic!
   factory_girl_rails (~> 4.6.0)
-  i18n
   mongoid (~> 5.1.0)
   mongoid_rails_migrations
   mysql2

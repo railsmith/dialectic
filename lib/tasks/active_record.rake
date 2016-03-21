@@ -4,7 +4,7 @@ require 'rails'
 include ActiveRecord::Tasks
 
 DatabaseTasks.env = Rails.env || 'development'
-DatabaseTasks.database_configuration = YAML::load(IO.read('config/database.yml'))
+DatabaseTasks.database_configuration = YAML::load(IO.read(Rails.root.join('config', 'database.yml')))
 DatabaseTasks.db_dir = 'db'
 DatabaseTasks.migrations_paths = 'db/migrate'
 DatabaseTasks.root = Rails.root
@@ -397,7 +397,7 @@ end
 namespace :railties do
   namespace :install do
     # desc "Copies missing migrations from Railties (e.g. engines). You can specify Railties to use with FROM=railtie1,railtie2"
-    task :migrations => :'db:load_config' do
+    task :migrations => :'active_record:db:load_config' do
       to_load = ENV['FROM'].blank? ? :all : ENV['FROM'].split(",").map(&:strip)
       railties = {}
       Rails.application.migration_railties.each do |railtie|
@@ -421,3 +421,4 @@ namespace :railties do
     end
   end
 end
+
