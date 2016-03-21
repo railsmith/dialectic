@@ -1,7 +1,8 @@
 require 'mongoid'
 require 'mongoid_rails_migrations'
+require 'rails'
 
-Mongoid.load!('config/mongoid.yml', :development)
+Mongoid.load!((Rails.root.nil? ? 'config/mongoid.yml': Rails.root.join('config', 'mongoid.yml').to_s), Rails.env.to_sym)
 
 namespace :mongoid do
   namespace :db do

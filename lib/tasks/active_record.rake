@@ -4,7 +4,7 @@ require 'rails'
 include ActiveRecord::Tasks
 
 DatabaseTasks.env = Rails.env || 'development'
-DatabaseTasks.database_configuration = YAML::load(IO.read(Rails.root.join('config', 'database.yml')))
+DatabaseTasks.database_configuration = YAML::load(IO.read((Rails.root.nil? ? 'config/database.yml' : Rails.root.join('config', 'database.yml'))))
 DatabaseTasks.db_dir = 'db'
 DatabaseTasks.migrations_paths = 'db/migrate'
 DatabaseTasks.root = Rails.root
