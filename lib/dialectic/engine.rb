@@ -26,7 +26,7 @@ module Dialectic
              ENV["RAILS_GROUPS"] = "active_record"
              ActiveRecord::Base.establish_connection(YAML::load(IO.read(Rails.root.join('config', 'database.yml')))[Rails.env])
         end
-      rescue LoadError
+      rescue => e
         puts 'Dialectic requires either mongoid > 5.0 or activerecord > 4.2.4'
       end
     end
