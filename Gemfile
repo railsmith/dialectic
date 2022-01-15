@@ -20,8 +20,8 @@ group :development, :test do
 end
 
 group :mongoid do
-  gem 'mongoid', '~> 5.1.0'
-  gem 'mongoid_rails_migrations'
+  gem 'mongoid', '~> 7.3', '>= 7.3.3'
+  gem 'mongoid_rails_migrations', '~> 1.4.0'
 end
 
 group :active_record do
