@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     dialectic (0.0.1)
-      rails (~> 5.1.7)
+      rails (>= 5.1.0)
 
 GEM
   remote: http://rubygems.org/
